@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="Pane" prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hostelManagement.controller.DeashBordFormControler">
+   <children>
+      <Pane prefHeight="56.0" prefWidth="1476.0" style="-fx-background-color: #0A4969;" AnchorPane.leftAnchor="432.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fx:id="txttime" fill="WHITE" layoutX="1030.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="314.49998664855957">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <Pane layoutX="349.0" prefHeight="1000.0" prefWidth="294.0" style="-fx-background-color: #0A4969;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1487.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox depthTest="DISABLE" layoutY="210.0" prefHeight="490.0" prefWidth="431.0">
+               <children>
+                  <JFXButton onAction="#deashBordOnAction" prefHeight="90.0" prefWidth="431.0" styleClass="sidebarItem" stylesheets="@assests/csss/Style.css" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assests/icons8-dashboard-66.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#studentOnAction" prefHeight="90.0" prefWidth="431.0" styleClass="sidebarItem" stylesheets="@assests/csss/Style.css" text="Manage Students" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assests/icons8-student-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#roomsOnAction" prefHeight="90.0" prefWidth="431.0" styleClass="sidebarItem" stylesheets="@assests/csss/Style.css" text="Manage Rooms" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assests/icons8-office-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#recevationOnAction" prefHeight="90.0" prefWidth="431.0" styleClass="sidebarItem" stylesheets="@assests/csss/Style.css" text="reservation" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assests/icons8-booking-58.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#deatilsOnAction" prefHeight="90.0" prefWidth="431.0" styleClass="sidebarItem" stylesheets="@assests/csss/Style.css" text="reservation details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assests/icons8-event-accepted-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets bottom="114.0" />
+               </opaqueInsets>
+            </VBox>
+            <JFXButton alignment="BOTTOM_CENTER" layoutX="114.0" layoutY="836.0" onAction="#LogoutOnAction" prefHeight="58.0" prefWidth="170.0" style="-fx-border-color: white; -fx-border-radius: 20; -fx-border-width: 4;" stylesheets="@assests/csss/Style.css" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/icons8-logout-rounded-64.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="borderCurve" />
+                  <String fx:value="box" />
+                  <String fx:value="circle3" />
+                  <String fx:value="circle" />
+                  <String fx:value="circle3" />
+               </styleClass>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="3.0" layoutY="124.0" prefHeight="77.0" prefWidth="1917.0" style="-fx-background-color: #C3E0E5;" AnchorPane.bottomAnchor="868.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <Label fx:id="lbltitile" alignment="CENTER" layoutX="809.0" prefHeight="32.0" prefWidth="546.0" text="Hostal">
+               <font>
+                  <Font name="System Bold" size="46.0" />
+               </font>
+            </Label>
+            <JFXHamburger layoutX="33.0" layoutY="14.0" prefHeight="50.0" prefWidth="53.0" />
+            <Label layoutX="106.0" layoutY="18.0" text="Dashboard">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" layoutX="149.0" layoutY="-47.0" prefHeight="32.0" prefWidth="362.0" text="date" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="pane2" layoutX="434.0" layoutY="132.0" prefHeight="867.0" prefWidth="1485.0" />
+      <AnchorPane fx:id="pane1" layoutX="10.0" layoutY="68.0" prefHeight="867.0" prefWidth="1485.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="pane4" layoutY="-1.0" prefHeight="868.0" prefWidth="1485.0" style="-fx-background-color: #3E4551;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@assests/csss/Style.css" />
+      <URL value="@assests/csss/style3.css" />
+   </stylesheets>
+</AnchorPane>
