@@ -36,4 +36,9 @@
 
 
 }
+.combo{
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-font-fill: rgb(54, 49, 49);
+}
 
