@@ -22,13 +22,25 @@ public class Navigation {
                 initUI("LoginForm.fxml");
                 break;
 
+            case DASHBORD:
+                initUI("DashbordForm.fxml");
+                break;
+            case ROOM:
+                initUI("RoomManagementForm.fxml");
+                break;
+            case RESIVETION:
+                initUI("ResivationForm.fxml");
+                break;
+            case STUDDENT:
+                initUI("AddStudentForm.fxml");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable UI found!").show();
         }
     }
     private static void initUI(String location) throws IOException {
         Navigation.pane.getChildren().add(FXMLLoader.load(Navigation.class
-                        .getResource("/lk/ijse/meatShop/view/" + location)));
+                        .getResource("/hostelManagement/view/" + location)));
     }
 
 

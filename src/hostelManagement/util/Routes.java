@@ -1,4 +1,4 @@
 package hostelManagement.util;
 public enum Routes {
-    LOGIN
+    LOGIN,DASHBORD,STUDDENT,ROOM,RESIVETION
 }
