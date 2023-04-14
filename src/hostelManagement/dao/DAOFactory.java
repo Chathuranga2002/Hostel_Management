@@ -1,6 +1,8 @@
 package hostelManagement.dao;
 
 
+import hostelManagement.dao.custom.impl.*;
+
 public class DAOFactory {
 
     private static DAOFactory daoFactory;
@@ -14,20 +16,20 @@ public class DAOFactory {
 
     public SuperDAO getDAO(DAOTypes types) {
         switch (types) {
-//            case STUDENT:
-//                return new StudentDAOImpl();
-//            case ROOM:
-//                return new RoomDAOImpl();
-//            case RESERVE:
-//                return new ReserveDAOImpl();
-//            case USER:
-//                return new UserDAOImpl();
+            case STUDENT:
+                return new StudentDAOImpl() ;
+            case ROOM:
+                return new RoomDAOImpl();
+            case RESERVE:
+                return new ReservationDAOImpl();
+            case LOGIN:
+                return new LoginDAOImpl();
             default:
                 return null;
         }
     }
 
     public enum DAOTypes {
-        STUDENT, ROOM, RESERVE,USER
+        STUDENT, ROOM, RESERVE,LOGIN
     }
 }

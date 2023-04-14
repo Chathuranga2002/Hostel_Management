@@ -1,6 +1,7 @@
 package hostelManagement.bo;
 
 
+import hostelManagement.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -11,15 +12,22 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        CUSTOMER
+        LOGIN,STUDENT,ROOM,RESIVATION,DASHBORD
     }
 
     //Object creation logic for BO objects
     public SuperBO getBO(BOTypes types){
         switch (types){
-//            case CUSTOMER:
-//                return new AddCustomerBOImpl();
-//
+            case LOGIN:
+                return new LoginBOImpl();
+            case DASHBORD:
+                return new DashbordBOImpl();
+            case RESIVATION:
+                return new ResivationBOImpl();
+            case ROOM:
+                return new RoomManageBOImpl();
+            case STUDENT:
+                return new AddStudentBOImpl();
             default:
                 return null;
         }
