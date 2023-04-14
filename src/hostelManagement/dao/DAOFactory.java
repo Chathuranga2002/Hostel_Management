@@ -21,7 +21,7 @@ public class DAOFactory {
             case ROOM:
                 return new RoomDAOImpl();
             case RESERVE:
-                return new ReservationDAOImpl();
+                return new ReserveDAOImpl();
             case LOGIN:
                 return new LoginDAOImpl();
             default:

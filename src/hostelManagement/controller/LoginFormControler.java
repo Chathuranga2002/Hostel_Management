@@ -39,6 +39,7 @@ public class LoginFormControler {
                 Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
                 Scene scene=new Scene(root);
                 stage.setMaximized(true);
+                stage.setTitle("");
                 stage.setScene(scene);
                 stage.show();
 
