@@ -16,6 +16,7 @@ import java.util.List;
 public class Student {
 
     @Id
+    @Column(columnDefinition = "VARCHAR(200)")
     private String student_id;
     private String name;
     private String address;

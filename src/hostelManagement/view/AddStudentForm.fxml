@@ -42,7 +42,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="txtId" layoutX="100.0" layoutY="115.0" prefHeight="42.0" prefWidth="220.0" promptText="Student Id :">
+            <JFXTextField fx:id="txtId" layoutX="100.0" layoutY="115.0" onAction="#SerchIdOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Student Id :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></JFXTextField>
