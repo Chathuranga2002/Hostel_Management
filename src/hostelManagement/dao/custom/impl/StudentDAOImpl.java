@@ -4,6 +4,8 @@ package hostelManagement.dao.custom.impl;
 import hostelManagement.dao.custom.StudentDAO;
 import hostelManagement.entity.Student;
 import hostelManagement.util.FactoryConfiguration;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -85,4 +87,18 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return false;
     }
+
+//    @Override
+//    public ObservableList<String> getAllStudentId() throws SQLException, ClassNotFoundException {
+////        ObservableList<String> list = FXCollections.observableArrayList();
+////        Session session = FactoryConfiguration.getInstance().getSession();
+////        Transaction transaction = session.beginTransaction();
+//////        Query id = session.createQuery("SELECT student_id FROM Student ");
+////        Student student = session.get(Student.class,id );
+////        transaction.commit();
+////        session.close();
+//
+//
+//        return null;
+//    }
 }

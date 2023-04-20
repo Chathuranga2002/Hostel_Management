@@ -29,7 +29,7 @@ public class DeashBordFormControler implements Initializable {
         private Label lbltitile;
 
         @FXML
-        private Label lblDate;
+        public Label lblDate;
 
         @FXML
         private AnchorPane pane;

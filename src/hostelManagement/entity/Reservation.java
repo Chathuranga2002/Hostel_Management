@@ -27,7 +27,6 @@ public class Reservation {
     @JoinColumn(name = "room_id", referencedColumnName = "room_id")
     private Room room_id;
     private String key_money;
-    private Double advance;
     private String status;
 
 }
