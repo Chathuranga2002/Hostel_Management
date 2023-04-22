@@ -13,7 +13,7 @@
       <AnchorPane layoutY="-2.0" prefHeight="869.0" prefWidth="1485.0" style="-fx-background-color: #3E4551;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0" />
       <Pane layoutX="116.0" layoutY="36.0" prefHeight="790.0" prefWidth="1264.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <TableView fx:id="tblKeyMony" layoutX="73.0" layoutY="286.0" prefHeight="464.0" prefWidth="1106.0">
+            <TableView fx:id="tblKeyMony" layoutX="73.0" layoutY="169.0" prefHeight="581.0" prefWidth="1106.0">
               <columns>
                 <TableColumn fx:id="colReceveId" prefWidth="137.66665649414062" text="Reserve Id" />
                 <TableColumn fx:id="colRoomId" prefWidth="193.33334350585938" text="Room Id" />
@@ -23,7 +23,7 @@
                   <TableColumn fx:id="colstatus" prefWidth="124.33331298828125" text="Status" />
               </columns>
             </TableView>
-            <JFXTextField fx:id="serchId" layoutX="139.0" layoutY="211.0" onAction="#SearchOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Search ">
+            <JFXTextField fx:id="serchId" layoutX="139.0" layoutY="114.0" onAction="#SearchOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Search ">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

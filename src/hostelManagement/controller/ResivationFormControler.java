@@ -4,114 +4,216 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import hostelManagement.bo.BOFactory;
 import hostelManagement.bo.custom.ResivationBO;
+import hostelManagement.dto.ReservationDTO;
 import hostelManagement.dto.RoomDTO;
 import hostelManagement.dto.StudentDTO;
-import javafx.event.ActionEvent;
+import hostelManagement.entity.Room;
+import hostelManagement.entity.Student;
+import hostelManagement.util.DateAndTime;
+import hostelManagement.util.Navigation;
+import hostelManagement.util.Routes;
+import hostelManagement.view.TM.RoomTM;
+import hostelManagement.view.TM.StudentTM;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ResivationFormControler  implements Initializable {
+    ResivationBO resivationBO = (ResivationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESIVATION);
 
 
-        public Label lblReId;
-    public JFXComboBox cobStudentId;
     @FXML
-        private AnchorPane pane1;
+    private AnchorPane pane1;
 
-        @FXML
-        private JFXTextField txtStudentId;
+    @FXML
+    private JFXTextField txtroomtype;
 
-        @FXML
-        private JFXTextField txtroomtype;
+    @FXML
+    private JFXTextField txtkeymony;
 
-        @FXML
-        private JFXTextField txtkeymony;
+    @FXML
+    private JFXTextField txtQty;
 
-        @FXML
-        private JFXTextField txtQty;
+    @FXML
+    private JFXTextField txtstudentname;
 
-        @FXML
-        private JFXTextField txtstudentname;
+    @FXML
+    private JFXTextField txtContact;
 
-        @FXML
-        private JFXTextField txtContact;
+    @FXML
+    private JFXTextField txtAddress;
 
-        @FXML
-        private JFXTextField txtAddress;
+    @FXML
+    private JFXTextField txtDob;
 
-        @FXML
-        private JFXTextField txtDob;
+    @FXML
+    private JFXTextField txtGender;
 
-        @FXML
-        private JFXTextField txtGender;
+    @FXML
+    private JFXComboBox<String> Combstatus;
 
-        @FXML
-        private JFXComboBox cobRomId;
-        ResivationBO resivationBO = (ResivationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESIVATION);
+    @FXML
+    private Label lblReId;
 
-        @FXML
-        void AddStudentOnAction(ActionEvent event) {
+    @FXML
+    private TableView<RoomTM> tblRoom;
 
-        }
+    @FXML
+    private TableColumn colroomId;
 
-        @FXML
-        void RecevedOnAction(ActionEvent event) {
+    @FXML
+    private TableColumn colroomTyoe;
 
-        }
+    @FXML
+    private TableColumn colKeyMony;
 
-    public void StudentSerchOnAction(ActionEvent actionEvent) {
+    @FXML
+    private TableColumn colqty;
+
+    @FXML
+    private TableView<StudentTM> tblStudent;
+
+    @FXML
+    private TableColumn colStId;
+
+    @FXML
+    private TableColumn ColstNAme;
+
+    @FXML
+    private TableColumn colAddress;
+
+    @FXML
+    private TableColumn ColContact;
+
+    @FXML
+    private TableColumn ColDob;
+
+    @FXML
+    private TableColumn colGender;
+
+    @FXML
+    private JFXTextField txtRoomID;
+
+    @FXML
+    private JFXTextField txtStId;
+
+    @FXML
+    void AddStudentOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.STUDDENT, pane1);
+
     }
 
-        public void RoomSerchOnAction(ActionEvent actionEvent) {
-        }
-    private void loadAllRoomIds() {
+    @FXML
+    void OnActionMiuseClickedRoom(MouseEvent event) {
+        int index = tblRoom.getSelectionModel ().getSelectedIndex ();
+        txtRoomID.setText(colroomId.getCellData (index).toString ());
+        txtroomtype.setText(colroomTyoe.getCellData (index).toString ());
+        txtQty.setText(colqty.getCellData (index).toString ());
+        txtkeymony.setText(colKeyMony.getCellData (index).toString ());
+
+    }
+
+    @FXML
+    void OnActionMiuseClickedStudent(MouseEvent event) {
+        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+        txtStId.setText(colStId.getCellData (index).toString ());
+        txtstudentname.setText(ColstNAme.getCellData (index).toString ());
+        txtAddress.setText(colAddress.getCellData (index).toString ());
+        txtContact.setText(ColContact.getCellData (index).toString ());
+        txtDob.setText(ColDob.getCellData (index).toString ());
+        txtGender.setText(colGender.getCellData (index).toString ());
+
+    }
+
+    @FXML
+    void RecevedOnAction(ActionEvent event) {
+        LocalDate date= LocalDate.parse(DateAndTime.dateNow());
+        String res_id=lblReId.getText();
+        String student_id=txtStId.getText();
+        String room_id=txtRoomID.getText();
+        String key_money=txtkeymony.getText();
+        String status=Combstatus.getValue();
+
         try {
-            ArrayList<RoomDTO> all = resivationBO.getAllRooms();
-            for (RoomDTO roomDTO : all) {
-                cobRomId.getItems().add(roomDTO.getRoom_type_id());
-            }
+            resivationBO.saveReservation(new ReservationDTO(res_id, date, student_id, room_id, key_money, status));
+            new Alert(Alert.AlertType.CONFIRMATION, "Receve Successful...!").show();
         } catch (SQLException e) {
+            new Alert(Alert.AlertType.WARNING, "Something went Wrong...!").show();
+            e.printStackTrace();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+
     }
-
-    private void loadAllStudentIds() {
+    String[] gender ={"Paid", "Pending"};
+    private void setTable() {
+        tblStudent.getItems().clear();
         try {
-            ArrayList<StudentDTO> all = resivationBO.getAllStudents();
-            for (StudentDTO studentDTO : all) {
-                cobStudentId.getItems().add(studentDTO.getStudent_id());
+            for (StudentDTO c : resivationBO.getAllStudents()) {
+                tblStudent.getItems().add(new StudentTM(c.getStudent_id(), c.getName(), c.getAddress(),
+                        c.getContact_no(),c.getDob(),c.getGender()));
             }
-
-        } catch (SQLException e) {
-
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        tblRoom.getItems().clear();
+        try {
+            for (RoomDTO c : resivationBO.getAllRooms()) {
+                tblRoom.getItems().add(new RoomTM(c.getRoom_type_id(), c.getType(), c.getKey_money(),
+                        c.getQty()));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
-//    private void loadAllRoomIds() {
-//        try {
-//            ArrayList<RoomDTO> all = purchaseRoomBO.getAllRooms();
-//            for (RoomDTO roomDTO : all) {
-//                cmbRoomId.getItems().add(roomDTO.getRoom_type_id());
-//            }
-//        } catch (SQLException e) {
-//            NotificationController.Warring("Rooms Load", "Failed to load customer ids.");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-            loadAllRoomIds();
+
+            Combstatus.getItems().addAll(gender);
+            setTable();
+            try {
+                lblReId.setText(resivationBO.generateNewId());
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            colStId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+            ColstNAme.setCellValueFactory(new PropertyValueFactory<>("name"));
+            colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+            ColContact.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+            ColDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+            colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+            colroomId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+            colroomTyoe.setCellValueFactory(new PropertyValueFactory<>("type"));
+            colKeyMony.setCellValueFactory(new PropertyValueFactory<>("key_money"));
+            colqty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         }
 }

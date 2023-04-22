@@ -8,34 +8,54 @@ import hostelManagement.dao.custom.StudentDAO;
 import hostelManagement.dto.ReservationDTO;
 import hostelManagement.dto.RoomDTO;
 import hostelManagement.dto.StudentDTO;
+import hostelManagement.entity.Reservation;
 import hostelManagement.entity.Room;
 import hostelManagement.entity.Student;
+import hostelManagement.util.FactoryConfiguration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ResivationBOImpl  implements ResivationBO {
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     ReserveDAO reserveDAO = (ReserveDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVE);
-    @Override
-    public StudentDTO serchStudent(String id) throws SQLException, ClassNotFoundException {
-        Student all = studentDAO.search(id);
-        return new StudentDTO(all.getStudent_id(), all.getName(), all.getAddress(), all.getContact_no(), all.getDob(),
-                all.getGender()) ;
-    }
+
 
     @Override
-    public RoomDTO serchRoom(String id) throws SQLException, ClassNotFoundException {
-        Room all = roomDAO.search(id);
-        return new RoomDTO(all.getRoom_id(), all.getType(), all.getKey_money(), all.getQty());
+    public ArrayList<ReservationDTO> getAllResivation() throws SQLException, ClassNotFoundException {
+        ArrayList<Reservation> all = reserveDAO.getAll();
+        ArrayList<ReservationDTO> allReserve = new ArrayList<>();
+        for (Reservation r : all) {
+            allReserve.add(new ReservationDTO(r.getRes_id(), r.getDate(), r.getStudent_id().getStudent_id(),
+                    r.getRoom_id().getRoom_id(), r.getKey_money(), r.getStatus()));
+        }
+        return allReserve;
+
     }
 
     @Override
     public boolean saveReservation(ReservationDTO reservation) throws SQLException, ClassNotFoundException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Student student = session.get(Student.class, reservation.getStudent_id());
+        Room room = session.get(Room.class, reservation.getRoom_type_id());
+
+        Reservation reserve = new Reservation(reservation.getRes_id(), reservation.getDate(), student, room,
+                reservation.getKey_money(), reservation.getStatus());
+        session.save(reserve);
+
+        room.setQty(room.getQty() - 1);
+        session.update(room);
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -46,6 +66,11 @@ public class ResivationBOImpl  implements ResivationBO {
             allStudent.add(new StudentDTO(student.getStudent_id(), student.getName(), student.getAddress(), student.getContact_no(), student.getDob(), student.getGender()));
         }
         return allStudent;
+    }
+
+    @Override
+    public String generateNewId() throws SQLException, ClassNotFoundException {
+        return reserveDAO.generateNewId();
     }
 
     @Override

@@ -28,6 +28,7 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public boolean save(Reservation reservation) throws SQLException, ClassNotFoundException {
+        try {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -35,6 +36,9 @@ public class ReserveDAOImpl implements ReserveDAO {
         transaction.commit();
         session.close();
         return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     @Override

@@ -26,7 +26,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </JFXButton>
-            <TableView fx:id="tblRoom" layoutX="73.0" layoutY="306.0" prefHeight="391.0" prefWidth="901.0">
+            <TableView fx:id="tblRoom" layoutX="73.0" layoutY="306.0" onMouseClicked="#SerchOnAction" prefHeight="391.0" prefWidth="901.0">
               <columns>
                 <TableColumn fx:id="colCode" prefWidth="155.33331298828125" text="id" />
                 <TableColumn fx:id="coltype" prefWidth="252.33331298828125" text="Type" />

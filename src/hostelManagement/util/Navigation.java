@@ -34,6 +34,9 @@ public class Navigation {
             case STUDDENT:
                 initUI("AddStudentForm.fxml");
                 break;
+            case RESIVETIONVIEW:
+                initUI("FindKeyMonyForm.fxml");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable UI found!").show();
         }

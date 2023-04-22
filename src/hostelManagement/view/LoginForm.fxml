@@ -44,7 +44,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/icons8-hide-50%20(1).png" />
+                        <Image url="@assests/Cloce_Eye1.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -225,4 +226,14 @@ public class AddStudentFormControler implements Initializable {
                         throwables.printStackTrace();
                 }
         }
+
+    public void SearchOnAction(MouseEvent mouseEvent) {
+            int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+            txtId.setText(colCode.getCellData (index).toString ());
+            txtName.setText(colname.getCellData (index).toString ());
+            txtAddress.setText(colAddress.getCellData (index).toString ());
+            txtContact.setText(colContact.getCellData (index).toString ());
+            combGender.setValue(colgender.getCellData (index).toString ());
+            dateofBirth.setValue(LocalDate.parse(coldate.getCellData (index).toString ()));
+    }
 }

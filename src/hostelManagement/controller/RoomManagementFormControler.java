@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -172,4 +173,12 @@ public class RoomManagementFormControler implements Initializable {
 
 
         }
+
+    public void SerchOnAction(MouseEvent mouseEvent) {
+            int index = tblRoom.getSelectionModel ().getSelectedIndex ();
+            txtId.setText(colCode.getCellData (index).toString ());
+            cobtype.setValue(coltype.getCellData (index).toString ());
+            txtQty.setText(colqty.getCellData (index).toString ());
+            txtkeymony.setText(colKeymony.getCellData (index).toString ());
+    }
 }
