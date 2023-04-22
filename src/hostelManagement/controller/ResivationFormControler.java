@@ -127,6 +127,7 @@ public class ResivationFormControler  implements Initializable {
         txtQty.setText(colqty.getCellData (index).toString ());
         txtkeymony.setText(colKeyMony.getCellData (index).toString ());
 
+
     }
 
     @FXML
@@ -138,6 +139,7 @@ public class ResivationFormControler  implements Initializable {
         txtContact.setText(ColContact.getCellData (index).toString ());
         txtDob.setText(ColDob.getCellData (index).toString ());
         txtGender.setText(colGender.getCellData (index).toString ());
+
 
     }
 
@@ -153,6 +155,9 @@ public class ResivationFormControler  implements Initializable {
         try {
             resivationBO.saveReservation(new ReservationDTO(res_id, date, student_id, room_id, key_money, status));
             new Alert(Alert.AlertType.CONFIRMATION, "Receve Successful...!").show();
+            setTable();
+            nextId();
+            cler();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.WARNING, "Something went Wrong...!").show();
             e.printStackTrace();
@@ -191,12 +196,7 @@ public class ResivationFormControler  implements Initializable {
 
 
     }
-
-        @Override
-        public void initialize(URL location, ResourceBundle resources) {
-
-            Combstatus.getItems().addAll(gender);
-            setTable();
+        public void nextId(){
             try {
                 lblReId.setText(resivationBO.generateNewId());
             } catch (SQLException throwables) {
@@ -204,6 +204,47 @@ public class ResivationFormControler  implements Initializable {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+
+        }
+        public void txtDesible(){
+
+            txtRoomID.setEditable(false);
+            txtroomtype.setEditable(false);
+            txtQty.setEditable(false);
+            txtkeymony.setEditable(false);
+            txtStId.setEditable(false);
+            txtstudentname.setEditable(false);
+            txtAddress.setEditable(false);
+            txtContact.setEditable(false);
+            txtDob.setEditable(false);
+            txtGender.setEditable(false);
+
+
+        }
+        public void cler(){
+            txtRoomID.clear();
+            txtroomtype.clear();
+            txtQty.clear();
+            txtkeymony.clear();
+            txtStId.clear();
+            txtstudentname.clear();
+            txtAddress.clear();
+            txtContact.clear();
+            txtDob.clear();
+            txtGender.clear();
+            Combstatus.getSelectionModel().clearSelection();
+
+        }
+
+
+
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+
+            Combstatus.getItems().addAll(gender);
+            txtDesible();
+            setTable();
+            nextId();
             colStId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
             ColstNAme.setCellValueFactory(new PropertyValueFactory<>("name"));
             colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));

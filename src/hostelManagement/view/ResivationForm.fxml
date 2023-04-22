@@ -42,27 +42,27 @@
                </font>
             </JFXTextField>
             <Separator layoutY="197.0" opacity="0.47" prefWidth="1264.0" style="-fx-background-color: black;" />
-            <JFXTextField fx:id="txtstudentname" layoutX="501.0" layoutY="67.0" prefHeight="42.0" prefWidth="220.0" promptText="Student name :">
+            <JFXTextField fx:id="txtstudentname" layoutX="501.0" layoutY="83.0" prefHeight="42.0" prefWidth="220.0" promptText="Student name :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtContact" layoutX="196.0" layoutY="126.0" prefHeight="42.0" prefWidth="220.0" promptText="Contact no :">
+            <JFXTextField fx:id="txtContact" layoutX="196.0" layoutY="146.0" prefHeight="42.0" prefWidth="220.0" promptText="Contact no :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtAddress" layoutX="851.0" layoutY="75.0" prefHeight="42.0" prefWidth="220.0" promptText="Address :">
+            <JFXTextField fx:id="txtAddress" layoutX="851.0" layoutY="85.0" prefHeight="42.0" prefWidth="220.0" promptText="Address :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtDob" layoutX="505.0" layoutY="131.0" prefHeight="42.0" prefWidth="220.0" promptText="Date of birth :">
+            <JFXTextField fx:id="txtDob" layoutX="505.0" layoutY="147.0" prefHeight="42.0" prefWidth="220.0" promptText="Date of birth :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtGender" layoutX="850.0" layoutY="130.0" prefHeight="42.0" prefWidth="220.0" promptText="Gender :">
+            <JFXTextField fx:id="txtGender" layoutX="850.0" layoutY="146.0" prefHeight="42.0" prefWidth="220.0" promptText="Gender :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -96,7 +96,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtStId" layoutX="196.0" layoutY="70.0" prefHeight="31.0" prefWidth="220.0" promptText="Student ID :">
+            <JFXTextField fx:id="txtStId" layoutX="196.0" layoutY="86.0" prefHeight="31.0" prefWidth="220.0" promptText="Student ID :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

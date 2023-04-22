@@ -15,8 +15,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -160,11 +163,22 @@ public class RoomManagementFormControler implements Initializable {
                         e.printStackTrace();
                 }
         }
+        public void nextId(){
+                try {
+                        txtId.setText(manageBO.generateNewID());
+                } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                }
+
+        }
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
                 initUI();
                 setTable();
+//                nextId();
                 cobtype.getItems().addAll(type);
                 colCode.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
                 coltype.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -181,4 +195,43 @@ public class RoomManagementFormControler implements Initializable {
             txtQty.setText(colqty.getCellData (index).toString ());
             txtkeymony.setText(colKeymony.getCellData (index).toString ());
     }
+
+        public void IdMachEvent(KeyEvent keyEvent) {
+
+                String id=txtId.getText();
+                if (!id.matches("^RM-[0-9]{3,4}$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtId.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtId.setFocusColor(paint);
+                }
+
+        }
+
+        public void KeyMoneMach(KeyEvent keyEvent) {
+                String mony=txtkeymony.getText();
+
+                if (!mony.matches("^([A-Z a-z0-9]{4,8})$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtkeymony.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtkeymony.setFocusColor(paint);
+                }
+        }
+
+        public void QtyMach(KeyEvent keyEvent) {
+                String id=txtQty.getText();
+                if (!id.matches("^[1-9][0-9]*$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtQty.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtQty.setFocusColor(paint);
+                }
+        }
 }

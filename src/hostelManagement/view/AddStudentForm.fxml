@@ -42,21 +42,21 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="txtId" layoutX="100.0" layoutY="115.0" onAction="#SerchIdOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Student Id :">
+            <JFXTextField fx:id="txtId" layoutX="100.0" layoutY="115.0" onAction="#SerchIdOnAction" onKeyReleased="#IdMach" prefHeight="42.0" prefWidth="220.0" promptText="Student Id :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="txtName" layoutX="417.0" layoutY="115.0" prefHeight="42.0" prefWidth="220.0" promptText="Student name :">
+            <JFXTextField fx:id="txtName" layoutX="417.0" layoutY="115.0" onKeyReleased="#nameMach" prefHeight="42.0" prefWidth="220.0" promptText="Student name :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtAddress" layoutX="737.0" layoutY="115.0" prefHeight="42.0" prefWidth="220.0" promptText="Student address :">
+            <JFXTextField fx:id="txtAddress" layoutX="737.0" layoutY="115.0" onKeyReleased="#addressMach" prefHeight="42.0" prefWidth="220.0" promptText="Student address :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtContact" layoutX="100.0" layoutY="245.0" onAction="#SerchOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Student contact no :">
+            <JFXTextField fx:id="txtContact" layoutX="100.0" layoutY="245.0" onAction="#SerchOnAction" onKeyReleased="#ContactMach" prefHeight="42.0" prefWidth="220.0" promptText="Student contact no :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

@@ -13,7 +13,7 @@ public class RoomManageBOImpl implements RoomManageBO {
      RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
     @Override
     public String generateNewID() throws SQLException, ClassNotFoundException {
-        return null;
+        return roomDAO.generateNewId();
     }
 
     @Override

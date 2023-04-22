@@ -9,7 +9,5 @@ import java.sql.SQLException;
 
 public interface RoomDAO extends CrudDAO<Room,String> {
 
-
-
-
+    String generateNewId() throws SQLException, ClassNotFoundException;
 }

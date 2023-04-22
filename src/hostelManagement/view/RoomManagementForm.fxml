@@ -39,16 +39,16 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="txtId" layoutX="139.0" layoutY="115.0" onAction="#SearchOnAction" prefHeight="42.0" prefWidth="220.0" promptText="Room Id :">
+            <JFXTextField fx:id="txtId" layoutX="139.0" layoutY="115.0" onAction="#SearchOnAction" onKeyReleased="#IdMachEvent" prefHeight="42.0" prefWidth="220.0" promptText="Room Id :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="txtkeymony" layoutX="136.0" layoutY="209.0" prefHeight="42.0" prefWidth="220.0" promptText="Keymony :">
+            <JFXTextField fx:id="txtkeymony" layoutX="136.0" layoutY="209.0" onKeyReleased="#KeyMoneMach" prefHeight="42.0" prefWidth="220.0" promptText="Keymony :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtQty" layoutX="605.0" layoutY="210.0" prefHeight="42.0" prefWidth="220.0" promptText="Qty :">
+            <JFXTextField fx:id="txtQty" layoutX="605.0" layoutY="210.0" onKeyReleased="#QtyMach" prefHeight="42.0" prefWidth="220.0" promptText="Qty :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

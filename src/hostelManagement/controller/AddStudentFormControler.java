@@ -13,8 +13,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -236,4 +239,52 @@ public class AddStudentFormControler implements Initializable {
             combGender.setValue(colgender.getCellData (index).toString ());
             dateofBirth.setValue(LocalDate.parse(coldate.getCellData (index).toString ()));
     }
+
+        public void IdMach(KeyEvent keyEvent) {
+                String id=txtId.getText();
+                if (!id.matches("^(ST-[0-9]{3,4})$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtId.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtId.setFocusColor(paint);
+                }
+        }
+
+        public void nameMach(KeyEvent keyEvent) {
+                String id=txtName.getText();
+                if (!id.matches("^([A-Z a-z]{5,40})$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtName.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtName.setFocusColor(paint);
+                }
+        }
+
+        public void addressMach(KeyEvent keyEvent) {
+                String id=txtAddress.getText();
+                if (!id.matches("^([A-Za-z]{4,60})$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtAddress.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtAddress.setFocusColor(paint);
+                }
+        }
+
+        public void ContactMach(KeyEvent keyEvent) {
+                String id=txtContact.getText();
+                if (!id.matches("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$")) {
+                        keyEvent.consume();
+                        Paint paint = Color.RED;
+                        txtContact.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        txtContact.setFocusColor(paint);
+                }
+        }
 }

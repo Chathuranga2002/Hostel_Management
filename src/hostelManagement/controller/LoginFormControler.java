@@ -1,4 +1,6 @@
 package hostelManagement.controller;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import hostelManagement.bo.BOFactory;
 import hostelManagement.bo.custom.LoginBO;
 import hostelManagement.dto.LoginDTO;
@@ -17,8 +19,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -32,10 +37,10 @@ public class LoginFormControler {
         private AnchorPane logging_pane;
 
         @FXML
-        private TextField UserName_Id;
+        private JFXTextField UserName_Id;
 
         @FXML
-        private PasswordField Pasword_Id;
+        private JFXPasswordField Pasword_Id;
 
         @FXML
         private Label lblHide;
@@ -131,6 +136,36 @@ public class LoginFormControler {
 //                Pasword_Id.setText("");
 //                Pasword_Id.setDisable(true);
 //                Pasword_Id.requestFocus();
+
+        }
+
+
+        @FXML
+        void PasswordMachs(KeyEvent event) {
+                String mony=Pasword_Id.getText();
+
+                if (!mony.matches("^([A-Z a-z0-9]{4,10})$")) {
+                        event.consume();
+                        Paint paint = Color.RED;
+                        Pasword_Id.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        Pasword_Id.setFocusColor(paint);
+                }
+
+        }
+
+        @FXML
+        void UsernameMachs(KeyEvent event) {
+                String id=UserName_Id.getText();
+                if (!id.matches("^([A-Z a-z]{5,40})$")) {
+                        event.consume();
+                        Paint paint = Color.RED;
+                        UserName_Id.setFocusColor(paint);
+                } else {
+                        Paint paint = Color.BLUE;
+                        UserName_Id.setFocusColor(paint);
+                }
 
         }
 }
