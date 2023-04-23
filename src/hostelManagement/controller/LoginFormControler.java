@@ -73,36 +73,7 @@ public class LoginFormControler {
 
         @FXML
         void LoggingOnAction(ActionEvent event) throws IOException {
-////                Navigation.navigate(Routes.DASHBORD, logging_pane);
-////                String contactText = UserName_Id.getText();
-//                String password="1234";
-//                String username="thisara";
-////                try {
-////                        LoginDTO dto = userBO.search(contactText);
-////                        password=dto.getPassword();
-////                        username=dto.getUserID();
-////
-////                } catch (Exception e) {
-////                        new Alert(Alert.AlertType.CONFIRMATION, " went wrong...!").show();
-////                        e.printStackTrace();
-////                }
-//                System.out.println(password+"  "+Pasword_Id.getText());
-//
-//
-//
-//                if(username.equals(UserName_Id.getText()) && Pasword_Id.getText().equals(password) ){
-//
-//                        Parent root = FXMLLoader.load(getClass().getResource("/hostelManagement/view/DashbordForm.fxml"));
-//                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                        Scene scene = new Scene(root);
-//                        stage.setMaximized(true);
-//                        stage.setTitle("");
-//                        stage.setScene(scene);
-//                        stage.show();
-//
-//                } else {
-//                        new Alert(Alert.AlertType.CONFIRMATION, " went wrong...!").show();
-//                }
+
 
                 Session session = FactoryConfiguration.getInstance().getSession();
 
